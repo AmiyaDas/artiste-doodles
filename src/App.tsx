@@ -1,10 +1,11 @@
 import "./App.css";
-import Catalog from "./components/user/Catalog";
+// import Catalog from "./components/user/Catalog";
+import ListCatalog from "./components/admin/ListCatalog";
 
 function App() {
   return (
     <div>
-      <Catalog />
+      <ListCatalog />
     </div>
   );
 }
