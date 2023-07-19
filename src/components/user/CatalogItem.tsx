@@ -1,8 +1,10 @@
+import imgUrl from "../../assets/img.jpg";
+
 function CatalogItem() {
   return (
     <ul className="list-group">
       <li className="list-group-item">
-        <img src="./src/assets/img.jpg" className="list-img" />
+        <img src={imgUrl} className="list-img" />
         Cras justo odio
         <button type="button" className="btn btn-light">
           -
