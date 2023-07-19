@@ -1,8 +1,14 @@
 function Header() {
   return (
     <nav className="navbar navbar-light sticky-top navbar-bg">
-      <img src="./src/assets/logo.jpg" className="header-img" />
-      <a className="navbar-brand title">Artiste Doodles</a>
+      <a className="navbar-brand title">
+        {" "}
+        <img
+          src="./src/assets/logo.jpg"
+          className="d-inline-block align-top header-img"
+        />
+        Artiste Doodles
+      </a>
     </nav>
   );
 }
