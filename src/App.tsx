@@ -1,13 +1,12 @@
 import './App.css'
+import Catalog from './Catalog'
 
 function App() {
 
   return (
-    <>
       <div>
-        <h1>Vite + React</h1>  
+        <Catalog />
       </div>
-    </>
   )
 }
 
