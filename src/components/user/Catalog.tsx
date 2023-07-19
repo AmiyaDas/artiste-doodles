@@ -1,5 +1,5 @@
 import CatalogItem from "./CatalogItem";
-import Header from "./Header";
+import Header from "../Header";
 
 function Catalog() {
   return (

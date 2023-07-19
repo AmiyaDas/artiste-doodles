@@ -1,13 +1,12 @@
-import './App.css'
-import Catalog from './Catalog'
+import "./App.css";
+import Catalog from "./components/user/Catalog";
 
 function App() {
-
   return (
-      <div>
-        <Catalog />
-      </div>
-  )
+    <div>
+      <Catalog />
+    </div>
+  );
 }
 
-export default App
+export default App;
