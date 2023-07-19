@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
-import axios from "axios";
+// import axios from "axios";
 
 function AddCatalogItem() {
   let initialObj = {
@@ -30,7 +30,7 @@ function AddCatalogItem() {
 
   const handleSubmit = (event: any) => {
     event.preventDefault();
-    const url = "http://localhost:3000/uploadFile";
+    // const url = "http://localhost:3000/uploadFile";
     const formData = new FormData();
     formData.append("image", file);
     // formData.append("fileName", file.name);

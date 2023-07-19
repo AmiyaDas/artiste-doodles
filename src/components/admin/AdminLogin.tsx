@@ -10,13 +10,10 @@ function AdminLogin() {
 
   const onLogin = () => {
     // Submit form results
-    if (userName == "neha" && password) {
-      if (password == "Neha@14694") {
+    if (userName == "admin" && password) {
+      if (password == "12345") {
         setShowError(false);
-        navigate("/adminCatalog", {
-          replace: true,
-          state: { bookName: "Fake Title" },
-        });
+        navigate("/adminCatalog");
       }
     } else {
       setShowError(true);
