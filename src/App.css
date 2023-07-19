@@ -25,6 +25,18 @@
     margin-right: 1rem;
 }
 
+.header-icon-bar {
+    text-align: center;
+    background-color: #3bb9ae;
+    color: #fff;
+    padding: 0.125rem;
+}
+
+.header-icon-bar .bi {
+    color: #fff;
+    margin: 0rem 0.25rem;
+}
+
 .modal {
     position: fixed;
     top: 0;
