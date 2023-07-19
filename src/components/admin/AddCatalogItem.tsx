@@ -3,7 +3,7 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import axios from "axios";
 
-function Example() {
+function AddCatalogItem() {
   let initialObj = {
     name: "",
     description: "",
@@ -141,4 +141,4 @@ function Example() {
   );
 }
 
-export default Example;
+export default AddCatalogItem;

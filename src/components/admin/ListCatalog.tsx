@@ -9,7 +9,7 @@ function Catalog() {
       <EditCatalogItem />
       <EditCatalogItem />
 
-      <nav className="navbar fixed-bottom navbar-light bg-light">
+      <nav className="navbar fixed-bottom footer-btn">
         <AddCatalogItem></AddCatalogItem>
       </nav>
     </div>

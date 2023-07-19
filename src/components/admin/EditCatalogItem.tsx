@@ -3,16 +3,14 @@ function EditCatalogItem() {
     <ul className="list-group">
       <li className="list-group-item">
         <img src="./src/assets/img.jpg" className="list-img" />
-        Cras justo odio
-        <button type="button" className="btn btn-light edit" >
-  
-          <i className="bi bi-pencil-square"></i>
+        <span className="item-info">Cras justo odio</span>
+        <button type="button" className="btn">
+          <i className="bi bi-pencil-fill"></i>
         </button>
-        <button type="button" className="btn btn-light delete">
-          <i className="bi bi-trash3"></i>
+        <button type="button" className="btn">
+          <i className="bi bi-trash3-fill"></i>
         </button>
-         
-        <i className="bi bi-1-circle"></i>
+        {/* <i className="bi bi-9-circle"></i> */}
       </li>
     </ul>
   );

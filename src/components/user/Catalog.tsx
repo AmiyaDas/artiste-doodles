@@ -7,11 +7,18 @@ function Catalog() {
       <Header />
       <CatalogItem />
       <CatalogItem />
+      <CatalogItem />
+      <CatalogItem />
+      <CatalogItem />
+      <CatalogItem />
+      <CatalogItem />
+      <CatalogItem />
+      <CatalogItem />
 
-      <nav className="navbar fixed-bottom navbar-light bg-light">
-        <a className="navbar-brand" href="#">
-          Fixed bottom
-        </a>
+      <nav className="navbar fixed-bottom footer-btn">
+        <button type="button" className="btn btn-primary">
+          Proceed
+        </button>
       </nav>
     </div>
   );

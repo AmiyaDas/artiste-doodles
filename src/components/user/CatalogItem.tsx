@@ -5,7 +5,7 @@ function CatalogItem() {
     <ul className="list-group">
       <li className="list-group-item">
         <img src={imgUrl} className="list-img" />
-        Cras justo odio
+        <span className="item-info">Cras justo odio</span>
         <button type="button" className="btn btn-light">
           -
         </button>
@@ -13,7 +13,7 @@ function CatalogItem() {
         <button type="button" className="btn btn-light">
           +
         </button>
-        <i className="bi bi-1-circle"></i>
+        {/* <i className="bi bi-1-circle"></i> */}
       </li>
     </ul>
   );

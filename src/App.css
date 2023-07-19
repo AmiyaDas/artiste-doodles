@@ -2,6 +2,7 @@
     /* padding: 0.5rem 01rem; */
     font-family: 'Comic Sans MS';
     color: #3bb9ae !important;
+    margin: auto !important;
 }
 
 .navbar-bg {
@@ -21,25 +22,26 @@
 .header-img {
     height: 2rem;
     width: 2rem;
+    margin-right: 1rem;
 }
 
 .modal {
     position: fixed;
     top: 0;
     left: 0;
-    width:100%;
+    width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.6);
-  }
-  
+}
+
 .modal-main {
-    position:fixed;
+    position: fixed;
     background: white;
     width: 80%;
     height: auto;
-    top:50%;
-    left:50%;
-    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .display-block {
@@ -51,9 +53,46 @@
 }
 
 .edit {
-    color:black;
+    color: black;
 }
 
 .delete {
     color: black;
+}
+
+.footer-btn {
+    padding: 0rem 0rem !important;
+}
+
+.footer-btn .btn {
+    background-color: #3bb9ae;
+    border: none;
+    width: 100%;
+}
+
+.footer-btn .btn:hover {
+    background-color: #3bb9ae;
+}
+
+i.bi {
+    color: #3bb9ae;
+}
+
+.admin-login {
+    margin: auto;
+    margin-top: 40%;
+    text-align: center;
+    padding: 1rem;
+}
+
+.admin-login h4 {
+    margin-bottom: 0.5rem;
+}
+
+.btn-default {
+    background-color: #3bb9ae !important;
+    color: #fff !important;
+    border: none;
+    width: 100%;
+    margin: 1rem 0rem;
 }
