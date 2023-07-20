@@ -2,7 +2,19 @@ import { useState } from "react";
 import EditCatalogItem from "./EditCatalogItem";
 import DeleteCatalogItem from "./DeleteCatalogItem";
 
-function AdminCatalogItem() {
+interface Props {
+  title: string;
+  price: string;
+  quantity: string;
+  imgUrl?: string;
+}
+
+function AdminCatalogItem({
+  title,
+  price,
+  quantity,
+  imgUrl = "./src/assets/img.jpg",
+}: Props) {
   const [showEdit, setShowEdit] = useState(false);
   const [showDelete, setShowDelete] = useState(false);
 
@@ -15,21 +27,34 @@ function AdminCatalogItem() {
   };
 
   return (
-    <ul className="list-group">
-      <li className="list-group-item">
-        <img src="./src/assets/img.jpg" className="list-img" />
-        <span className="item-info">Cras justo odio</span>
-        <button type="button" className="btn" onClick={handleEditEvent}>
+    <li className="list-item">
+      <img src={imgUrl} className="list-img" />
+      <div className="item-info">
+        <span className="item-info-title">{title}</span>
+        <span className="item-info-subtitle">
+          {"Qty Left: " + quantity} <br />
+          {"₹" + price}
+        </span>
+      </div>
+      <div className="item-buttons">
+        <button
+          type="button"
+          className="btn btn-light"
+          onClick={handleEditEvent}
+        >
           <i className="bi bi-pencil-fill"></i>
         </button>
         {showEdit && <EditCatalogItem />}
-        <button type="button" className="btn" onClick={handleDeleteEvent}>
+        <button
+          type="button"
+          className="btn btn-light"
+          onClick={handleDeleteEvent}
+        >
           <i className="bi bi-trash3-fill"></i>
         </button>
         {showEdit && <DeleteCatalogItem />}
-        {/* <i className="bi bi-9-circle"></i> */}
-      </li>
-    </ul>
+      </div>
+    </li>
   );
 }
 

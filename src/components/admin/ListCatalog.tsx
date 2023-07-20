@@ -22,24 +22,21 @@ function Catalog() {
     },
   ];
 
-  // const listItems = itemsData.map((item) => {
-  //   return (
-  // <AdminCatalogItem
-  //   key={item.id}
-  //   title={item.title}
-  //   price={item.price}
-  //   quantity={item.qtyRemaining}
-  // />
-  //   );
-  // });
+  const listItems = itemsData.map((item) => {
+    return (
+      <AdminCatalogItem
+        key={item.id}
+        title={item.title}
+        price={item.price}
+        quantity={item.qtyRemaining}
+      />
+    );
+  });
 
   return (
     <div>
       <Header />
-      {/* <ul className="list-group">{listItems}</ul> */}
-      <AdminCatalogItem />
-      <AdminCatalogItem />
-
+      <ul className="list-group">{listItems}</ul>
       <nav className="navbar fixed-bottom footer-btn">
         <AddCatalogItem></AddCatalogItem>
       </nav>
