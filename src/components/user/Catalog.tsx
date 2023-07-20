@@ -5,16 +5,38 @@ function Catalog() {
   return (
     <div>
       <Header />
-      <CatalogItem />
-      <CatalogItem />
-      <CatalogItem />
-      <CatalogItem />
-      <CatalogItem />
-      <CatalogItem />
-      <CatalogItem />
-      <CatalogItem />
-      <CatalogItem />
-
+      <ul className="list-group">
+        <CatalogItem
+          title="Lorem"
+          price="200"
+          qtyRemaining="10"
+          imgUrl="null"
+        />
+        <CatalogItem
+          title="Lorem"
+          price="200"
+          qtyRemaining="10"
+          imgUrl="null"
+        />
+        <CatalogItem
+          title="Lorem"
+          price="200"
+          qtyRemaining="15"
+          imgUrl="null"
+        />
+        <CatalogItem
+          title="Lorem"
+          price="200"
+          qtyRemaining="10"
+          imgUrl="null"
+        />
+        <CatalogItem
+          title="Lorem"
+          price="200"
+          qtyRemaining="10"
+          imgUrl="null"
+        />
+      </ul>
       <nav className="navbar fixed-bottom footer-btn">
         <button type="button" className="btn btn-primary">
           Proceed
