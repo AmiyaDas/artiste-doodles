@@ -4,10 +4,15 @@ interface Props {
   title: string;
   price: string;
   qtyRemaining: string;
-  imgUrl: string;
+  imgUrl?: string;
 }
 
-function CatalogItem({ title, price, qtyRemaining, imgUrl }: Props) {
+function CatalogItem({
+  title,
+  price,
+  qtyRemaining,
+  imgUrl = defaultImgUrl,
+}: Props) {
   const [quantity, setQuantity] = useState(0);
 
   const onAddQty = () => {
@@ -23,7 +28,7 @@ function CatalogItem({ title, price, qtyRemaining, imgUrl }: Props) {
   };
   return (
     <li className="list-item">
-      <img src={defaultImgUrl} className="list-img" />
+      <img src={imgUrl} className="list-img" />
       <div className="item-info">
         <span className="item-info-title">{title}</span>
         <span className="item-info-subtitle">

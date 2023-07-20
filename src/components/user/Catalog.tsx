@@ -11,22 +11,24 @@ function Catalog() {
       price: "200",
       qtyRemaining: "10",
       imgUrl: "null",
+      id: "123",
     },
     {
       title: "Lorem",
       price: "200",
       qtyRemaining: "15",
       imgUrl: "null",
+      id: "234",
     },
   ];
 
   const listItems = itemsData.map((item) => {
     return (
       <CatalogItem
+        key={item.id}
         title={item.title}
         price={item.price}
         qtyRemaining={item.qtyRemaining}
-        imgUrl={item.imgUrl}
       />
     );
   });

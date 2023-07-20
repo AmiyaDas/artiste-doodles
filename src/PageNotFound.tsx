@@ -1,16 +1,27 @@
+import { useNavigate } from "react-router-dom";
+import Header from "./components/Header";
+
 function PageNotFound() {
+  const navigate = useNavigate();
+
+  const onNavHome = () => {
+    navigate("/");
+  };
   return (
-    <div className="page-not-found">
-      <div className="section">
-        <h1 className="error">404</h1>
-        <div className="page">
-          Ooops!!! The page you are looking for is not found
+    <>
+      <Header />{" "}
+      <div className="page-not-found">
+        <div className="section">
+          <h2 className="error">404</h2>
+          <div className="page">
+            Ooops!!! The page you are looking for is not found
+          </div>
+          <a className="back-home" onClick={onNavHome}>
+            Back to home
+          </a>
         </div>
-        <a className="back-home" href="#!">
-          Back to home
-        </a>
       </div>
-    </div>
+    </>
   );
 }
 
