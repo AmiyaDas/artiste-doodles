@@ -7,7 +7,7 @@ function Header() {
         <a href="https://www.instagram.com/artistedoodles.jewellery/">
           <i className="bi bi-instagram"></i>
         </a>
-        <a href="#">
+        <a href="https://www.facebook.com/artistedoodles.jewellery">
           <i className="bi bi-facebook"></i>
         </a>
         <a href="https://wa.me/918100603589">
