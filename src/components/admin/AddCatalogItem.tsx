@@ -1,7 +1,21 @@
 import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
-// import axios from "axios";
+import {
+  getDatabase,
+  ref as dbreference,
+  set,
+  serverTimestamp,
+} from "firebase/database";
+import app from "../../../firebase";
+import {
+  getStorage,
+  ref as storagereference,
+  uploadBytes,
+} from "firebase/storage";
+
+const db = getDatabase(app);
+const storage = getStorage(app);
 
 function AddCatalogItem() {
   let initialObj = {
@@ -16,7 +30,7 @@ function AddCatalogItem() {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const [inputs, setInputs] = useState(initialObj);
-  const [file, setFile] = useState<string | Blob>("");
+  const [file, setFile] = useState<Blob | File>();
 
   const handleChange = (event: any) => {
     const name = event.target.name;
@@ -30,25 +44,23 @@ function AddCatalogItem() {
 
   const handleSubmit = (event: any) => {
     event.preventDefault();
-    // const url = "http://localhost:3000/uploadFile";
-    const formData = new FormData();
-    formData.append("image", file);
-    // formData.append("fileName", file.name);
-    formData.append("name", inputs.name);
-    formData.append("description", inputs.description);
-    formData.append("qty", inputs.qty);
-    formData.append("price", inputs.price);
-    // const config = {
-    //   headers: {
-    //     "content-type": "multipart/form-data",
-    //   },
-    // };
-    // axios.post(url, formData, config).then((response) => {
-    //   console.log(response.data);
-    // });
-    console.log(inputs);
-    console.log(file);
-    // alert(inputs);
+    const reference = dbreference(db, "items/" + 1223);
+    set(reference, {
+      id: serverTimestamp(),
+      name: inputs.name,
+      description: inputs.description,
+      qty: inputs.qty,
+      price: inputs.price,
+      dateAdded: serverTimestamp(),
+      fileName: file?.name,
+    });
+
+    if (file) {
+      const itemsImageRef = storagereference(storage, file.name);
+      uploadBytes(itemsImageRef, file).then((snapshot) => {
+        console.log("Uploaded a blob or file!", snapshot);
+      });
+    }
   };
 
   return (
