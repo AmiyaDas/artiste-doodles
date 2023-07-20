@@ -37,14 +37,15 @@ function AdminCatalogItem({
         </span>
       </div>
       <div className="item-buttons">
-        <button
+        {/* <button
           type="button"
           className="btn btn-light"
           onClick={handleEditEvent}
         >
           <i className="bi bi-pencil-fill"></i>
-        </button>
-        {showEdit && <EditCatalogItem />}
+        </button> */}
+        {/* {showEdit && <EditCatalogItem />} */}
+        <EditCatalogItem />
         <button
           type="button"
           className="btn btn-light"

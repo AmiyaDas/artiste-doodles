@@ -66,6 +66,9 @@ function EditCatalogItem() {
 
   return (
     <>
+      <button type="button" className="btn btn-light" onClick={handleShow}>
+        <i className="bi bi-pencil-fill"></i>
+      </button>
       <Modal
         show={show}
         onHide={handleClose}
