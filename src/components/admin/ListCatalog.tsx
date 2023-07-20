@@ -1,4 +1,4 @@
-import EditCatalogItem from "./EditCatalogItem";
+import AdminCatalogItem from "./AdminCatalogItem";
 import Header from "../Header";
 import AddCatalogItem from "./AddCatalogItem";
 
@@ -22,21 +22,24 @@ function Catalog() {
     },
   ];
 
-  const listItems = itemsData.map((item) => {
-    return (
-      <EditCatalogItem
-        key={item.id}
-        title={item.title}
-        price={item.price}
-        quantity={item.qtyRemaining}
-      />
-    );
-  });
+  // const listItems = itemsData.map((item) => {
+  //   return (
+  // <AdminCatalogItem
+  //   key={item.id}
+  //   title={item.title}
+  //   price={item.price}
+  //   quantity={item.qtyRemaining}
+  // />
+  //   );
+  // });
 
   return (
     <div>
       <Header />
-      <ul className="list-group">{listItems}</ul>
+      {/* <ul className="list-group">{listItems}</ul> */}
+      <AdminCatalogItem />
+      <AdminCatalogItem />
+
       <nav className="navbar fixed-bottom footer-btn">
         <AddCatalogItem></AddCatalogItem>
       </nav>

@@ -44,7 +44,8 @@ function AddCatalogItem() {
 
   const handleSubmit = (event: any) => {
     event.preventDefault();
-    const reference = dbreference(db, "items/" + 1223);
+    console.log(Date.now());
+    const reference = dbreference(db, "items/" + Date.now());
     set(reference, {
       id: serverTimestamp(),
       name: inputs.name,
@@ -56,7 +57,7 @@ function AddCatalogItem() {
     });
 
     if (file) {
-      const itemsImageRef = storagereference(storage, file.name);
+      const itemsImageRef = storagereference(storage, "items/" + file.name);
       uploadBytes(itemsImageRef, file).then((snapshot) => {
         console.log("Uploaded a blob or file!", snapshot);
       });
