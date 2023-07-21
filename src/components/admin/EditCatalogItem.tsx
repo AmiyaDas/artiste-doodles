@@ -4,7 +4,7 @@ import Modal from "react-bootstrap/Modal";
 import {
   getDatabase,
   ref as dbreference,
-  set,
+  update,
   serverTimestamp,
 } from "firebase/database";
 import app from "../../../firebase";
@@ -12,17 +12,34 @@ import {
   getStorage,
   ref as storagereference,
   uploadBytes,
+  deleteObject,
 } from "firebase/storage";
 
 const db = getDatabase(app);
 const storage = getStorage(app);
 
-function EditCatalogItem() {
+interface Props {
+  title: string;
+  price: string;
+  quantity: string;
+  imgUrl?: string;
+  id: string;
+  desc: string;
+}
+
+const EditCatalogItem = ({
+  title,
+  price,
+  quantity,
+  imgUrl = "./src/assets/img.jpg",
+  id,
+  desc,
+}: Props) => {
   let initialObj = {
-    name: "",
-    description: "",
-    qty: "",
-    price: "",
+    name: title,
+    description: desc,
+    qty: quantity,
+    price: price,
     img: "",
   };
   const [show, setShow] = useState(false);
@@ -45,9 +62,9 @@ function EditCatalogItem() {
   const handleSubmit = (event: any) => {
     event.preventDefault();
     console.log(Date.now());
-    const reference = dbreference(db, "items/" + Date.now());
-    set(reference, {
-      id: serverTimestamp(),
+    const reference = dbreference(db, "items/" + id);
+    update(reference, {
+      id: id,
       name: inputs.name,
       description: inputs.description,
       qty: inputs.qty,
@@ -56,6 +73,16 @@ function EditCatalogItem() {
       fileName: file?.name,
     });
 
+    const storageRef = storagereference(storage, "items/" + imgUrl);
+    // Delete the file
+    deleteObject(storageRef)
+      .then(() => {
+        // File deleted successfully
+        // handleShowToast();
+      })
+      .catch((error: any) => {
+        console.log(error);
+      });
     if (file) {
       const itemsImageRef = storagereference(storage, "items/" + file.name);
       uploadBytes(itemsImageRef, file).then((snapshot) => {
@@ -87,7 +114,7 @@ function EditCatalogItem() {
                 className="form-control"
                 id="name"
                 name="name"
-                value={inputs.name || ""}
+                value={title}
                 onChange={handleChange}
               />
             </div>
@@ -98,7 +125,7 @@ function EditCatalogItem() {
                 className="form-control"
                 id="desc"
                 name="description"
-                value={inputs.description || ""}
+                value={desc}
                 onChange={handleChange}
               />
             </div>
@@ -109,7 +136,7 @@ function EditCatalogItem() {
                 className="form-control"
                 id="qty"
                 name="qty"
-                value={inputs.qty || ""}
+                value={quantity}
                 onChange={handleChange}
               />
             </div>
@@ -122,7 +149,7 @@ function EditCatalogItem() {
                 id="price"
                 name="price"
                 aria-label="Amount (to the nearest rupees)"
-                value={inputs.price || ""}
+                value={price}
                 onChange={handleChange}
               />
               <span className="input-group-text">.00</span>
@@ -143,12 +170,12 @@ function EditCatalogItem() {
             Cancel
           </Button>
           <Button variant="primary" onClick={handleSubmit}>
-            Add Item
+            Update Item
           </Button>
         </Modal.Footer>
       </Modal>
     </>
   );
-}
+};
 
 export default EditCatalogItem;

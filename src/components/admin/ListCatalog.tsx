@@ -9,7 +9,7 @@ function Catalog() {
       price: "200",
       qtyRemaining: "10",
       imgUrl: "null",
-      desc: "",
+      desc: "Some description to show there is something here",
       id: "123",
     },
     {
@@ -17,7 +17,7 @@ function Catalog() {
       price: "200",
       qtyRemaining: "15",
       imgUrl: "null",
-      desc: "",
+      desc: "Some description to show there is something here",
       id: "234",
     },
   ];
@@ -29,6 +29,9 @@ function Catalog() {
         title={item.title}
         price={item.price}
         quantity={item.qtyRemaining}
+        desc={item.desc}
+        imgName={item.imgUrl}
+        id={item.id}
       />
     );
   });

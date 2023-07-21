@@ -4,9 +4,12 @@ import DeleteCatalogItem from "./DeleteCatalogItem";
 
 interface Props {
   title: string;
+  desc: string;
   price: string;
   quantity: string;
   imgUrl?: string;
+  id: string;
+  imgName: string;
 }
 
 function AdminCatalogItem({
@@ -14,18 +17,10 @@ function AdminCatalogItem({
   price,
   quantity,
   imgUrl = "./src/assets/img.jpg",
+  imgName,
+  id,
+  desc,
 }: Props) {
-  const [showEdit, setShowEdit] = useState(false);
-  const [showDelete, setShowDelete] = useState(false);
-
-  const handleEditEvent = () => {
-    setShowEdit(!showEdit);
-  };
-
-  const handleDeleteEvent = () => {
-    setShowDelete(!showDelete);
-  };
-
   return (
     <li className="list-item">
       <img src={imgUrl} className="list-img" />
@@ -45,15 +40,22 @@ function AdminCatalogItem({
           <i className="bi bi-pencil-fill"></i>
         </button> */}
         {/* {showEdit && <EditCatalogItem />} */}
-        <EditCatalogItem />
-        <button
+        <EditCatalogItem
+          title={title}
+          id={id}
+          price={price}
+          quantity={quantity}
+          desc={desc}
+        />
+        {/* <button
           type="button"
           className="btn btn-light"
           onClick={handleDeleteEvent}
         >
           <i className="bi bi-trash3-fill"></i>
-        </button>
-        {showEdit && <DeleteCatalogItem />}
+        </button> */}
+
+        <DeleteCatalogItem imgName={imgName} id={id} />
       </div>
     </li>
   );

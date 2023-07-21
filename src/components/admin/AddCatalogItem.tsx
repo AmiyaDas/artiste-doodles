@@ -47,7 +47,7 @@ function AddCatalogItem() {
     console.log(Date.now());
     const reference = dbreference(db, "items/" + Date.now());
     set(reference, {
-      id: serverTimestamp(),
+      id: Date.now(),
       name: inputs.name,
       description: inputs.description,
       qty: inputs.qty,
