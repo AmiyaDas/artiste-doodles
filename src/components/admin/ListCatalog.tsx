@@ -48,7 +48,6 @@ function Catalog() {
     <div>
       <Header />
       <ul className="list-group">{listItems}</ul>
-      {/* {showToast == true && ( */}
       <div
         className={"toast align-items-center" + (showToast ? " show" : "")}
         role="alert"
@@ -66,7 +65,6 @@ function Catalog() {
           ></button>
         </div>
       </div>
-      {/* )} */}
       <nav className="navbar fixed-bottom footer-btn">
         <AddCatalogItem></AddCatalogItem>
       </nav>

@@ -1,18 +1,11 @@
 import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
-import {
-  getDatabase,
-  ref as dbreference,
-  set,
-  serverTimestamp,
-  remove,
-} from "firebase/database";
+import { getDatabase, ref as dbreference, remove } from "firebase/database";
 import app from "../../../firebase";
 import {
   getStorage,
   ref as storagereference,
-  uploadBytes,
   deleteObject,
 } from "firebase/storage";
 
@@ -38,22 +31,24 @@ const DeleteCatalogItem = ({ id, imgName, handleConfirm }: Props) => {
     if (handleConfirm) {
       handleConfirm();
     }
-    let idt = id;
-    let img = imgName;
-    // const reference = dbreference(db, "items/" + id);
-    // remove(reference);
+    // let idt = id;
+    // let img = imgName;
+    const reference = dbreference(db, "items/" + id);
+    remove(reference);
 
-    // const storageRef = storagereference(storage, "items/"+imgName);
+    const storageRef = storagereference(storage, "items/" + imgName);
 
-    // // Delete the file
-    // deleteObject(storageRef)
-    //   .then(() => {
-    //     // File deleted successfully
-    //     handleShowToast();
-    //   })
-    //   .catch((error: any) => {
-    //     console.log(error);
-    //   });
+    // Delete the file
+    deleteObject(storageRef)
+      .then(() => {
+        // File deleted successfully
+        if (handleConfirm) {
+          handleConfirm();
+        }
+      })
+      .catch((error: any) => {
+        console.log(error);
+      });
   };
 
   return (

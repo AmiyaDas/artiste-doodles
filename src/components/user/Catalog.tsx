@@ -3,98 +3,77 @@ import Header from "../Header";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { getDatabase, ref as databaseref, onValue } from "firebase/database";
-import {
-  getStorage,
-  ref as storageref,
-  getDownloadURL,
-  listAll,
-} from "firebase/storage";
 import app from "../../../firebase";
 
 const db = getDatabase(app);
-const storage = getStorage(app);
+const IMAGE_URL =
+  "https://firebasestorage.googleapis.com/v0/b/artistedoodles-1.appspot.com/o/items%2F";
+const IMAGE_URL_SUFFIX = "?alt=media";
 
 function Catalog() {
   const navigate = useNavigate();
 
-  const itemsData = [
-    {
-      title: "Lorem",
-      price: "200",
-      qtyRemaining: "10",
-      imgUrl: "null",
-      id: "123",
-    },
-    {
-      title: "Lorem",
-      price: "200",
-      qtyRemaining: "15",
-      imgUrl: "null",
-      id: "234",
-    },
-  ];
-
   const [items, setItems] = useState([]);
 
-  let images: any = [];
   const fetchItems = () => {
     const itemsRef = databaseref(db, "items/");
-    const itemsImageReference = storageref(storage, "/items/");
+    // const itemsImageReference = storageref(storage, "/items/");
 
     onValue(itemsRef, (snapshot) => {
       const data = snapshot.val();
-      setItems(data);
+      setItems(Object.values(data));
     });
 
-    listAll(itemsImageReference)
-      .then((res) => {
-        res.items.forEach((itemRef) => {
-          // console.log(itemRef.fullPath);
-          // console.log(itemRef.name);
-          getDownloadURL(itemRef)
-            .then((url) => {
-              const xhr = new XMLHttpRequest();
-              xhr.responseType = "blob";
-              xhr.onload = (event) => {
-                const blob = xhr.response;
-                console.log(event);
-                images.push(blob);
-                console.log(blob);
-              };
-              xhr.open("GET", url);
-              xhr.send();
-            })
-            .catch((error) => {
-              switch (error.code) {
-                case "storage/object-not-found":
-                  break;
-                case "storage/unauthorized":
-                  break;
-                case "storage/canceled":
-                  break;
-                case "storage/unknown":
-                  break;
-              }
-            });
-        });
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+    //   listAll(itemsImageReference)
+    //     .then((res) => {
+    //       res.items.forEach((itemRef) => {
+    //         // console.log(itemRef.fullPath);
+    //         // console.log(itemRef.name);
+    //         getDownloadURL(itemRef)
+    //           .then((url) => {
+    //             const xhr = new XMLHttpRequest();
+    //             xhr.responseType = "blob";
+    //             xhr.onload = (event) => {
+    //               const blob = xhr.response;
+    //               // console.log(event);
+    //               images.push(blob);
+    //               // console.log(blob);
+    //             };
+    //             xhr.open("GET", url);
+    //             xhr.send();
+    //           })
+    //           .catch((error) => {
+    //             switch (error.code) {
+    //               case "storage/object-not-found":
+    //                 break;
+    //               case "storage/unauthorized":
+    //                 break;
+    //               case "storage/canceled":
+    //                 break;
+    //               case "storage/unknown":
+    //                 break;
+    //             }
+    //           });
+    //       });
+    //     })
+    //     .catch((error) => {
+    //       console.error(error);
+    //     });
   };
 
   useEffect(() => {
     fetchItems();
-    console.log(items);
+    // console.log(items);
   }, []);
 
-  const listItems = itemsData.map((item) => {
+  const listItems = items.map((item: any) => {
     return (
       <CatalogItem
         key={item.id}
-        title={item.title}
+        title={item.name}
         price={item.price}
-        qtyRemaining={item.qtyRemaining}
+        qtyRemaining={item.qty}
+        imgUrl={IMAGE_URL + item.fileName + IMAGE_URL_SUFFIX}
       />
     );
   });
