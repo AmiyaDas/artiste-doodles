@@ -22,21 +22,22 @@ const storage = getStorage(app);
 interface Props {
   id: string;
   imgName: string;
+  handleConfirm?: () => void;
 }
 
-const DeleteCatalogItem = ({ id, imgName }: Props) => {
+const DeleteCatalogItem = ({ id, imgName, handleConfirm }: Props) => {
   const [show, setShow] = useState(false);
-  const [showToast, setShowToast] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  const handleShowToast = () => setShowToast(true);
 
   const handleDelete = (event: any) => {
     event.preventDefault();
     console.log("deleted");
     handleClose();
-    handleShowToast();
+    if (handleConfirm) {
+      handleConfirm();
+    }
     let idt = id;
     let img = imgName;
     // const reference = dbreference(db, "items/" + id);
@@ -79,24 +80,6 @@ const DeleteCatalogItem = ({ id, imgName }: Props) => {
           </Button>
         </Modal.Footer>
       </Modal>
-      {showToast == true && (
-        <div
-          className="toast align-items-center"
-          role="alert"
-          aria-live="assertive"
-          aria-atomic="true"
-        >
-          <div className="d-flex">
-            <div className="toast-body">Item deleted successfully!</div>
-            <button
-              type="button"
-              className="btn-close me-2 m-auto"
-              data-bs-dismiss="toast"
-              aria-label="Close"
-            ></button>
-          </div>
-        </div>
-      )}
     </>
   );
 };

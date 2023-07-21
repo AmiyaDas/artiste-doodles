@@ -15,7 +15,7 @@ function Header() {
         </a>
       </div>
       <nav className="navbar navbar-light sticky-top navbar-bg">
-        <a className="navbar-brand title">
+        <a className="navbar-brand title" href="/">
           <img src={logoUrl} className="d-inline-block align-top header-img" />
           Artiste Doodles
         </a>

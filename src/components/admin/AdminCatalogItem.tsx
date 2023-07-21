@@ -10,6 +10,7 @@ interface Props {
   imgUrl?: string;
   id: string;
   imgName: string;
+  deleteHandler?: () => void;
 }
 
 function AdminCatalogItem({
@@ -20,6 +21,7 @@ function AdminCatalogItem({
   imgName,
   id,
   desc,
+  deleteHandler,
 }: Props) {
   return (
     <li className="list-item">
@@ -55,7 +57,11 @@ function AdminCatalogItem({
           <i className="bi bi-trash3-fill"></i>
         </button> */}
 
-        <DeleteCatalogItem imgName={imgName} id={id} />
+        <DeleteCatalogItem
+          imgName={imgName}
+          id={id}
+          handleConfirm={deleteHandler}
+        />
       </div>
     </li>
   );

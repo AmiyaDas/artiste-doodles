@@ -62,6 +62,7 @@ function AddCatalogItem() {
         console.log("Uploaded a blob or file!", snapshot);
       });
     }
+    setShow(!show);
   };
 
   return (
