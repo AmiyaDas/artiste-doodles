@@ -1,30 +1,35 @@
-import { useState } from "react";
 import defaultImgUrl from "../../assets/img.jpg";
 
 interface Props {
   title: string;
+  id: string;
   price: string;
   qtyRemaining: string;
+  quantity: number;
   imgUrl?: string;
+  onAdd?: (id: string, val: number) => void;
+  onRemove?: (id: string, val: number) => void;
 }
 
 function CatalogItem({
   title,
+  id,
   price,
   qtyRemaining,
+  quantity,
   imgUrl = defaultImgUrl,
+  onAdd,
+  onRemove,
 }: Props) {
-  const [quantity, setQuantity] = useState(0);
-
   const onAddQty = () => {
-    if (quantity < parseInt(qtyRemaining)) {
-      setQuantity(quantity + 1);
+    if (onAdd) {
+      onAdd(id, quantity);
     }
   };
 
   const onSubtractQty = () => {
-    if (quantity > 0) {
-      setQuantity(quantity - 1);
+    if (onRemove) {
+      onRemove(id, quantity);
     }
   };
   return (

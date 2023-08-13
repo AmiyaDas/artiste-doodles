@@ -18,8 +18,6 @@
     display: flex;
     flex-direction: row;
     height: 96px;
-    /* padding: 0.5rem 0.25rem; */
-    /* pointer-events: all; */
 }
 
 .item-info {
@@ -150,6 +148,7 @@ i.bi {
     margin: 1rem 0rem;
 }
 
+
 /* page not found */
 .page-not-found body {
     margin: 0;
@@ -211,7 +210,36 @@ i.bi {
     border-image: initial;
 }
 
+/* page not found ends */
+
+
 .btn {
     /* float: right;
     margin-left: auto */
+}
+
+.total-section>div {
+    display: flex;
+    justify-content: space-between;
+    padding: 0rem 0.5rem;
+    font-size: 10pt;
+    color: #666;
+}
+
+.total-section .total {
+    color: #000;
+    font-weight: bold;
+    font-size: 11pt;
+}
+
+.discount .price {
+    color: #3abc87
+}
+
+.total-section .total {
+    border-top: 1px solid rgb(233, 237, 239);
+}
+
+.order-user-form {
+    padding: 0.5rem;
 }

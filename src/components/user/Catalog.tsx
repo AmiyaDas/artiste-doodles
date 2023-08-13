@@ -1,19 +1,37 @@
 import CatalogItem from "./CatalogItem";
 import Header from "../Header";
+import AppConstants from "../../AppConstants";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { getDatabase, ref as databaseref, onValue } from "firebase/database";
 import app from "../../../firebase";
 
 const db = getDatabase(app);
-const IMAGE_URL =
-  "https://firebasestorage.googleapis.com/v0/b/artistedoodles-1.appspot.com/o/items%2F";
-const IMAGE_URL_SUFFIX = "?alt=media";
 
 function Catalog() {
   const navigate = useNavigate();
 
   const [items, setItems] = useState([]);
+
+  const onAddItem = (id: string, val: number) => {
+    let newItems: any = items.map((item: any) => {
+      if (item.id == id && val < parseInt(item.qty)) {
+        item.quantity = val + 1;
+      }
+      return item;
+    });
+    setItems(newItems);
+  };
+
+  const onRemoveItem = (id: string, val: number) => {
+    let newItems: any = items.map((item: any) => {
+      if (item.id == id && val > 0) {
+        item.quantity = val - 1;
+      }
+      return item;
+    });
+    setItems(newItems);
+  };
 
   const fetchItems = () => {
     const itemsRef = databaseref(db, "items/");
@@ -24,6 +42,7 @@ function Catalog() {
       setItems(Object.values(data));
     });
 
+    // code for fetching all the images/files from backend
     //   listAll(itemsImageReference)
     //     .then((res) => {
     //       res.items.forEach((itemRef) => {
@@ -63,23 +82,33 @@ function Catalog() {
 
   useEffect(() => {
     fetchItems();
-    // console.log(items);
   }, []);
 
   const listItems = items.map((item: any) => {
     return (
       <CatalogItem
         key={item.id}
+        id={item.id}
         title={item.name}
         price={item.price}
         qtyRemaining={item.qty}
-        imgUrl={IMAGE_URL + item.fileName + IMAGE_URL_SUFFIX}
+        quantity={item.quantity ? item.quantity : 0}
+        imgUrl={
+          AppConstants.IMAGE_URL + item.fileName + AppConstants.IMAGE_URL_SUFFIX
+        }
+        onAdd={onAddItem}
+        onRemove={onRemoveItem}
       />
     );
   });
 
   const onProceed = () => {
-    navigate("/checkout", { replace: true, state: { data: true } });
+    let selectedItems = items.filter((item: any) => {
+      if (item.quantity && item.quantity > 0) {
+        return true;
+      }
+    });
+    navigate("/checkout", { replace: false, state: selectedItems });
   };
 
   return (
