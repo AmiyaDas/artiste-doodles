@@ -2,14 +2,18 @@ import { useLocation, useNavigate } from "react-router-dom";
 import AppConstants from "../../AppConstants";
 import Header from "../Header";
 import { useEffect, useState } from "react";
+import Modal from "react-bootstrap/Modal";
+import Button from "react-bootstrap/Button";
 
 function Checkout() {
   const navigate = useNavigate();
 
   const [checkoutItems, setCheckoutItems] = useState(useLocation().state);
   const [mrp, setMrp] = useState(0);
+  const [show, setShow] = useState(false);
   // const checkoutItems =
-
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
   const onPlaceOrder = () => {
     let billingDetails = {
       price: mrp,
@@ -27,12 +31,20 @@ function Checkout() {
       return item.id !== id;
     });
     setCheckoutItems(newCheckoutItems);
-    calculateMrp();
+    handleClose();
+    if (newCheckoutItems.length <= 0) {
+      navigate("/", {
+        replace: true,
+        state: { items: checkoutItems },
+      });
+    } else {
+      calculateMrp();
+    }
   };
 
   useEffect(() => {
     calculateMrp();
-  }, []);
+  }, [removeItem]);
 
   const calculateMrp = () => {
     let totalMrp = 0;
@@ -56,21 +68,51 @@ function Checkout() {
         <div className="item-info">
           <span className="item-info-title">{item.name}</span>
           <span className="item-info-subtitle">
-            {"Qty: " + item.quantity + " x ₹" + item.price}
+            {"Qty: " + item.quantity + " x ₹ " + item.price}
           </span>
         </div>
         <div className="item-buttons">
           <span className="badge-secondary">
-            {parseInt(item.quantity) * parseFloat(item.price)}
+            {"₹ " + parseInt(item.quantity) * parseFloat(item.price)}
           </span>
-          <button
-            type="button"
-            className="btn btn-light"
-            onClick={() => removeItem(item.id)}
-          >
-            <i className="bi bi-trash3-fill"></i>
-          </button>
+          <span className="delete-button">
+            <button
+              type="button"
+              className="btn btn-light"
+              onClick={handleShow}
+            >
+              <i className="bi bi-trash3-fill"></i>
+            </button>
+          </span>
         </div>
+        <Modal
+          show={show}
+          onHide={handleClose}
+          backdrop="static"
+          keyboard={false}
+        >
+          <Modal.Header closeButton>
+            <Modal.Title>
+              Are you sure you want to delete this item?
+            </Modal.Title>
+          </Modal.Header>
+          {/* <Modal.Body>
+            <h5>Are you sure you want to delete this item? </h5>
+          </Modal.Body> */}
+          <Modal.Footer>
+            <Button variant="secondary" onClick={handleClose}>
+              Cancel
+            </Button>
+            <Button
+              variant="primary"
+              onClick={() => {
+                removeItem(item.id);
+              }}
+            >
+              Delete
+            </Button>
+          </Modal.Footer>
+        </Modal>
       </li>
     );
   });
@@ -82,7 +124,7 @@ function Checkout() {
       <div className="total-section">
         <div className="price">
           <span>Total MRP</span>
-          <span>{mrp}</span>
+          <span>{"₹ " + mrp}</span>
         </div>
         {/* <div className="discount">
           <span>Discount on MRP</span>
@@ -90,11 +132,11 @@ function Checkout() {
         </div> */}
         <div className="delivery">
           <span>Delivery fee</span>
-          <span>{AppConstants.DELIVERY_FEE}</span>
+          <span>{"₹ " + AppConstants.DELIVERY_FEE}</span>
         </div>
         <div className="total">
           <span>Total Amount</span>
-          <span>{mrp + AppConstants.DELIVERY_FEE}</span>
+          <span>₹ {mrp + AppConstants.DELIVERY_FEE}</span>
         </div>
       </div>
       <nav className="navbar fixed-bottom footer-btn">

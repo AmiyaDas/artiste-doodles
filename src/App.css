@@ -44,8 +44,12 @@
     align-self: center;
     height: 100%;
     margin-right: 0.5rem;
+    font-size: larger;
 }
 
+.delete-button {
+    padding-left: 10px;
+}
 .list-img {
     width: 80px;
     height: 80px;
@@ -239,7 +243,19 @@ i.bi {
 .total-section .total {
     border-top: 1px solid rgb(233, 237, 239);
 }
+.total-section {
+    margin-top: 2rem;
+}
 
 .order-user-form {
     padding: 0.5rem;
+}
+.error {
+    color: red;
+    font-weight: bold;
+}
+
+.order-toast {
+    margin-top: 50%;
+    margin-left: 8%;
 }

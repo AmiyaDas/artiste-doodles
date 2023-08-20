@@ -11,8 +11,7 @@ const db = getDatabase(app);
 function Catalog() {
   const navigate = useNavigate();
 
-  const [items, setItems] = useState([]);
-
+  const [items, setItems] = useState<any[]>([]);
   const onAddItem = (id: string, val: number) => {
     let newItems: any = items.map((item: any) => {
       if (item.id == id && val < parseInt(item.qty)) {
@@ -32,7 +31,9 @@ function Catalog() {
     });
     setItems(newItems);
   };
-
+  const isDisabled = () => {
+    return items.some((item) => item.quantity > 0);
+  };
   const fetchItems = () => {
     const itemsRef = databaseref(db, "items/");
     // const itemsImageReference = storageref(storage, "/items/");
@@ -116,7 +117,12 @@ function Catalog() {
       <Header />
       <ul className="list-group">{listItems}</ul>
       <nav className="navbar fixed-bottom footer-btn">
-        <button type="button" className="btn btn-primary" onClick={onProceed}>
+        <button
+          type="button"
+          className="btn btn-primary"
+          onClick={onProceed}
+          disabled={!isDisabled()}
+        >
           Proceed
         </button>
       </nav>
