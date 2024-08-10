@@ -3,7 +3,7 @@ import { FaUser } from "react-icons/fa";
 import { FaSearch } from "react-icons/fa";
 import { FaShoppingCart } from "react-icons/fa";
 
-function Detail() {
+function Header() {
     return (
         <div className="header">
             <div>
@@ -21,4 +21,4 @@ function Detail() {
     )
 }
 
-export default Detail;
+export default Header;

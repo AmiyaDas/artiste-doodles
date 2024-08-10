@@ -5,18 +5,19 @@ import home4 from "../mocks/home4.png";
 import home5 from "../mocks/home5.png";
 import home6 from "../mocks/home6.png";
 import Header from "../components/Header";
+import Menu from "./Menu";
+import Footer from "./Footer";
 
 function Home() {
     return (
         <div>
             <Header />
-          <img src={home1} alt="home1" />
+            <Menu/>
           <img src={home2} alt="home1" />
           <img src={home3} alt="home1" />
           <img src={home4} alt="home1" />
           <img src={home5} alt="home1" />
-          <img src={home6} alt="home1" />
-            
+        <Footer />
         </div>
     )
 }

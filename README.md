@@ -5,9 +5,10 @@ https://www.teejh.com/
 https://www.regaliaornaments.com/
 
 # Notes/components:
-* header
+* &hearts; - header 
  * user login(optional) and cart and global search
-* menu bar with menu items (categories)
+* &hearts; - menu bar with menu items (categories)
+* homepage carousal
 * list of items page
  * left panel for filters (auto generated based on attributes)
  * top will have a sorting option drop down
@@ -29,6 +30,9 @@ https://www.regaliaornaments.com/
  * orders list
   * list item
  * order detail page
+ * about us page
+ * contact us page
+ * give feedback page
 
 
 
