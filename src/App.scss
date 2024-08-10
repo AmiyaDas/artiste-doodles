@@ -1,0 +1,30 @@
+body {
+  width: 100%;
+  img {
+    width: 100%;
+  }
+}
+
+$icon-color: #666;
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0rem 2rem;
+  font-size: 22pt;
+  .logo {
+    width: 5rem;
+  }
+  .title {
+    font-family: sans-serif;
+    font-weight: bolder;
+    font-size: 30pt;
+    color: black;
+    display: flex;
+  }
+  & > div,
+  & > div span {
+    margin: auto 0rem;
+    color: $icon-color;
+  }
+}
