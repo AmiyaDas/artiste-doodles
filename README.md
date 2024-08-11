@@ -8,6 +8,7 @@ https://www.regaliaornaments.com/
 * &hearts; - header 
  * user login(optional) and cart and global search
 * &hearts; - menu bar with menu items (categories)
+* &hearts; - footer
 * homepage carousal
 * list of items page
  * left panel for filters (auto generated based on attributes)
