@@ -15,9 +15,15 @@ function Footer() {
                 </div>
             </div>
             <div className="footer-icons">
+                <span>
                 <FaInstagram />
+                </span>
+                <span>
                 <FaFacebook />
+                </span>
+                <span>
                 <FaWhatsapp />
+                </span>
             </div>
             <div className="copyright">
                 <FaRegCopyright /> 2024 Artiste Doodles | Developed by:

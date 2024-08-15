@@ -7,7 +7,9 @@ body {
 }
 
 $icon-color: #6d4211;
-$link-color: #666;
+$link-color: #6d4211;
+$title-color: #666;
+$text-color: #111;
 // add  link color same as icon color
 $link-hover-color: #3bb9ae;
 $background: #eddcc4;
@@ -31,6 +33,18 @@ $background: #eddcc4;
   & > div span {
     margin: auto 0rem;
     color: $icon-color;
+  }
+}
+
+.search {
+  min-width: 1rem;
+  .search-input {
+    border-radius: 0.5rem;
+    border: 2px solid;
+    width: 10rem;
+    height: 1.5rem;
+    position: absolute;
+    margin: 0rem 1rem;
   }
 }
 
@@ -69,23 +83,57 @@ $background: #eddcc4;
     }
   }
 }
+
 .footer-icons {
   display: flex;
   justify-content: center;
   color: $icon-color;
-  svg {
+  span {
     padding: 0rem 1rem;
   }
 }
 
 .copyright {
-  a {
-    text-decoration: none;
-    color: $icon-color;
-  }
   padding: 1rem;
   display: flex;
   justify-content: center;
   font-size: 10px;
   color: $icon-color;
+  a {
+    text-decoration: none;
+    color: $icon-color;
+  }
+}
+
+.home-carousel {
+  margin-bottom: 1rem;
+}
+
+.offers {
+  .offers-header {
+    margin-top: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $title-color;
+  }
+
+  .cards-container {
+    display: flex;
+    padding: 1rem;
+    overflow-x: auto;
+    .offer-card {
+      width: 23%;
+      height: 16rem;
+      min-width: 10rem;
+      background-color: #eddcc4;
+      margin: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      outline: 1px solid #fff;
+      outline-offset: -10px;
+      border: 1px solid #ccc;
+    }
+  }
 }

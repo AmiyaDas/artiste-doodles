@@ -9,7 +9,7 @@ https://www.regaliaornaments.com/
  * user login(optional) and cart and global search
 * &hearts; - menu bar with menu items (categories)
 * &hearts; - footer
-* homepage carousal
+* &hearts; - homepage carousal
 * list of items page
  * left panel for filters (auto generated based on attributes)
  * top will have a sorting option drop down
@@ -39,4 +39,14 @@ https://www.regaliaornaments.com/
 
 # Tasks:
 * routing
-* test &hearts;
+* test
+* mobile responsive
+
+
+
+# Requirements:
+* Categories list
+* Photo for carousals(3 atleas) ratio 2:1(800x400)
+* 1 Photo for each category
+* url of whatsapp,mail,insta,fb
+* a paragraph for about us(use chat gpt)
