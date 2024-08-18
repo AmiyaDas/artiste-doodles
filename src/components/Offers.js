@@ -7,11 +7,11 @@ function Offers() {
             <div className='offers-header'>
                 SHOP EXCITING OFFERS
             </div>
-            <div className='cards-container'>
+            <div className='offers-cards-container'>
                 <OfferCard bgImage={offerImg} url="https://www.google.com" />
-                <OfferCard />
-                <OfferCard />
-                <OfferCard />
+                <OfferCard bgImage={offerImg} url="https://www.google.com" />
+                <OfferCard bgImage={offerImg} url="https://www.google.com" />
+                <OfferCard bgImage={offerImg} url="https://www.google.com" />
             </div>
         </div>
     )

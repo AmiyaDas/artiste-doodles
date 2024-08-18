@@ -50,3 +50,4 @@ https://www.regaliaornaments.com/
 * 1 Photo for each category
 * url of whatsapp,mail,insta,fb
 * a paragraph for about us(use chat gpt)
+* remove background from logo

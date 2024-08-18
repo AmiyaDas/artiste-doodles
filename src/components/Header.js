@@ -1,4 +1,4 @@
-import logo from "../assets/logo.jpg"
+import logo from "../assets/logo.png"
 import { FaUser } from "react-icons/fa";
 import { FaSearch } from "react-icons/fa";
 import { FaShoppingCart } from "react-icons/fa";

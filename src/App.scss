@@ -1,11 +1,3 @@
-body {
-  width: 100%;
-  font-family: Arial, Helvetica, sans-serif;
-  img {
-    width: 100%;
-  }
-}
-
 $icon-color: #6d4211;
 $link-color: #6d4211;
 $title-color: #666;
@@ -13,6 +5,15 @@ $text-color: #111;
 // add  link color same as icon color
 $link-hover-color: #3bb9ae;
 $background: #eddcc4;
+
+body {
+  width: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: $background;
+  img {
+    width: 100%;
+  }
+}
 
 .header {
   display: flex;
@@ -39,6 +40,7 @@ $background: #eddcc4;
 .search {
   min-width: 1rem;
   .search-input {
+    background: transparent;
     border-radius: 0.5rem;
     border: 2px solid;
     width: 10rem;
@@ -109,31 +111,64 @@ $background: #eddcc4;
   margin-bottom: 1rem;
 }
 
-.offers {
-  .offers-header {
+.offers,
+.category {
+  .offers-header,
+  .category-header {
     margin-top: 4rem;
     display: flex;
+    font-size: 1.5rem;
     align-items: center;
     justify-content: center;
     color: $title-color;
   }
 
-  .cards-container {
+  .offers-cards-container {
     display: flex;
-    padding: 1rem;
+    padding: 1rem 0.5rem;
+    justify-content: space-between;
     overflow-x: auto;
     .offer-card {
       width: 23%;
-      height: 16rem;
+      height: 100%;
       min-width: 10rem;
-      background-color: #eddcc4;
+      background-color: #fff;
       margin: 0.5rem;
       display: flex;
       align-items: center;
       justify-content: center;
-      outline: 1px solid #fff;
+      outline: 1px solid $link-hover-color;
       outline-offset: -10px;
       border: 1px solid #ccc;
+      & a {
+        background-color: $background;
+      }
+    }
+  }
+
+  .category-cards-container {
+    display: flex;
+    padding: 1rem 0.5rem 1rem 0rem;
+    justify-content: space-between;
+    .category-card {
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      width: 31%;
+      height: 100%;
+      //   min-width: 10rem;
+      background-color: #fff;
+      margin: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      & a {
+        text-align: center;
+        text-decoration: none;
+        background-color: #fff;
+        padding: 0rem 0rem 0.5rem 0rem;
+        font-size: 18px;
+      }
+      .category-card-title {
+      }
     }
   }
 }
