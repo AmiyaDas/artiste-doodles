@@ -4,29 +4,34 @@ import { FaSearch } from "react-icons/fa";
 import { FaShoppingCart } from "react-icons/fa";
 import { useState } from "react";
 
-function Header() {
-    const [showSearch, setShowSearch] = useState(false);
+function Header({ showSearch = false, showUser = false, showCart = false }) {
+    const [showSearchInput, setShowSearchInput] = useState(showSearch);
 
     const searchInput = function () {
         if (showSearch) {
-            return (
-                <div className="search">
-                    <FaSearch onClick={handleShowSearch} />
-                    <input className="search-input">
-                    </input>
-                </div>
-            );
+            if (showSearchInput) {
+                return (
+                    <div className="search">
+                        <FaSearch onClick={handleShowSearchInput} />
+                        <input className="search-input">
+                        </input>
+                    </div>
+                );
+            } else {
+                return (
+                    <div className="search">
+                        <FaSearch onClick={handleShowSearchInput} />
+                    </div>
+                )
+            }
         } else {
-            return (
-                <div className="search">
-                    <FaSearch onClick={handleShowSearch} />
-                </div>
-            )
+            return <div></div>
         }
+
     }
 
-    const handleShowSearch = function () {
-        setShowSearch(true);
+    const handleShowSearchInput = function () {
+        setShowSearchInput(true);
     }
 
     return (
@@ -37,8 +42,8 @@ function Header() {
                 <span className="title">Artiste Doodles</span>
             </div>
             <div>
-                <FaUser />
-                <FaShoppingCart />
+                {showUser ? <FaUser /> : <></>}
+                {showCart ? <FaShoppingCart /> : <></>}
             </div>
         </div>
     )

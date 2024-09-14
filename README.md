@@ -34,13 +34,22 @@ https://www.regaliaornaments.com/
  * about us page
  * contact us page
  * give feedback page
-
+* 404 not found
 
 
 # Tasks:
+* make crud for personal entry of products
 * routing
 * test
 * mobile responsive
+
+# ToDos:
+* &hearts; - learn & implement routing - 30
+* &hearts; - make login page for admin - 30
+* make list page/list item component for admin - 45
+* make detail page for product - 45
+* make add detail page - 30
+* make edit details page - 30
 
 
 

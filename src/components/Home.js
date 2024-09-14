@@ -4,15 +4,17 @@ import Footer from "./Footer";
 import HomeCarousel from "./HomeCarousel";
 import Offers from "./Offers";
 import Categories from "./Categories";
+import ComingSoon from "./ComingSoon";
 
 function Home() {
     return (
         <div>
-            <Header />
-            <Menu />
+            {/* <Header /> */}
+            <ComingSoon/>
+            {/* <Menu />
             <HomeCarousel />
             <Offers />
-            <Categories />
+            <Categories /> */}
             <Footer />
         </div>
     )

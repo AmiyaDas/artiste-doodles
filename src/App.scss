@@ -2,16 +2,52 @@ $icon-color: #6d4211;
 $link-color: #6d4211;
 $title-color: #666;
 $text-color: #111;
+$white-color: #fff;
+$border-color: #ccc;
+$shadow-color: rgba(0, 0, 0, 0.15) 0px 4px 12px 0px;
 // add  link color same as icon color
 $link-hover-color: #3bb9ae;
 $background: #eddcc4;
 
 body {
   width: 100%;
+  margin: 0px;
   font-family: Arial, Helvetica, sans-serif;
-  background-color: $background;
+  // background-color: $background;
+  background-image: url("assets/background.jpg");
+  background-color: $white-color;
   img {
     width: 100%;
+  }
+}
+
+.coming-soon-body {
+  background-image: url("assets/background.jpg");
+  background-color: $white-color;
+  width: 100%;
+  height: 100vh;
+  align-content: center;
+  margin: auto;
+  text-align: center;
+  .logo {
+    width: 8rem;
+  }
+  .header {
+    font-size: 2.5rem;
+    font-weight: bold;
+    padding: 1rem;
+    justify-content: center;
+  }
+  .sub-header {
+    font-size: 20px;
+    padding: 1rem;
+  }
+  .instagram {
+    font-size: 12px;
+    .icon {
+      font-size: 32px;
+      color: $icon-color;
+    }
   }
 }
 
@@ -20,6 +56,9 @@ body {
   justify-content: space-between;
   padding: 0rem 2rem;
   font-size: 20pt;
+  background-color: $background;
+  box-shadow: $shadow-color;
+
   .logo {
     width: 5rem;
   }
@@ -132,14 +171,14 @@ body {
       width: 23%;
       height: 100%;
       min-width: 10rem;
-      background-color: #fff;
+      background-color: $white-color;
       margin: 0.5rem;
       display: flex;
       align-items: center;
       justify-content: center;
       outline: 1px solid $link-hover-color;
       outline-offset: -10px;
-      border: 1px solid #ccc;
+      border: 1px solid $border-color;
       & a {
         background-color: $background;
       }
@@ -150,25 +189,78 @@ body {
     display: flex;
     padding: 1rem 0.5rem 1rem 0rem;
     justify-content: space-between;
-    .category-card {
-      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-      width: 31%;
-      height: 100%;
-      //   min-width: 10rem;
-      background-color: #fff;
-      margin: 0.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      & a {
-        text-align: center;
-        text-decoration: none;
-        background-color: #fff;
-        padding: 0rem 0rem 0.5rem 0rem;
-        font-size: 18px;
+  }
+}
+
+.category-card {
+  box-shadow: $shadow-color;
+  width: 31%;
+  height: 100%;
+  //   min-width: 10rem;
+  background-color: $white-color;
+  margin: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  & a {
+    text-align: center;
+    text-decoration: none;
+    background-color: $white-color;
+    padding: 0rem 0rem 0.5rem 0rem;
+    font-size: 18px;
+  }
+  .category-card-title {
+  }
+}
+
+.admin {
+  display: flex;
+  height: 100vh;
+  .login-panel {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    min-width: 18rem;
+    justify-content: center;
+    margin: auto;
+    align-items: center;
+    .admin-header {
+      text-align: center;
+      .logo {
+        width: 8rem;
       }
-      .category-card-title {
-      }
+    }
+
+    .username {
+      width: 100%;
+      background-color: $white-color;
+      border: 1px solid $border-color;
+      margin-top: 1rem;
+      box-shadow: $shadow-color;
+      border-radius: 10px;
+      padding: 0.5rem;
+      font-size: 16px;
+    }
+    .password {
+      width: 100%;
+      background-color: $white-color;
+      border: 1px solid $border-color;
+      margin-top: 1rem;
+      box-shadow: $shadow-color;
+      border-radius: 10px;
+      padding: 0.5rem;
+      font-size: 16px;
+    }
+    .action-button {
+      width: 100%;
+      background-color: $link-color;
+      color: $background;
+      border: 1px solid $border-color;
+      margin-top: 1rem;
+      box-shadow: $shadow-color;
+      border-radius: 10px;
+      padding: 0.5rem;
+      font-size: 16px;
     }
   }
 }
