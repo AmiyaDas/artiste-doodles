@@ -1,0 +1,28 @@
+$icon-color: #6d4211;
+$shadow-color: rgba(0, 0, 0, 0.15) 0px 4px 12px 0px;
+$background: #eddcc4;
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0rem 2rem;
+  font-size: 20pt;
+  background-color: $background;
+  box-shadow: $shadow-color;
+
+  .logo {
+    width: 5rem;
+  }
+  .title {
+    font-family: sans-serif;
+    font-weight: bolder;
+    font-size: 30pt;
+    color: #3bb9ae;
+    display: flex;
+  }
+  & > div,
+  & > div span {
+    margin: auto 0rem;
+    color: $icon-color;
+  }
+}

@@ -3,6 +3,7 @@ import { FaUser } from "react-icons/fa";
 import { FaSearch } from "react-icons/fa";
 import { FaShoppingCart } from "react-icons/fa";
 import { useState } from "react";
+import "./Header.scss"
 
 function Header({ showSearch = false, showUser = false, showCart = false }) {
     const [showSearchInput, setShowSearchInput] = useState(showSearch);
