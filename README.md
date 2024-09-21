@@ -47,6 +47,7 @@ https://www.regaliaornaments.com/
 * &hearts; - learn & implement routing - 30
 * &hearts; - make login page for admin - 30
 * image upload - 45
+* add category & subcategory logic - 45
 * make list page/list item component for admin - 45
 * make detail page for product - 45
 * make add detail page - 30

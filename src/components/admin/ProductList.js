@@ -14,8 +14,6 @@ const ProductList = () => {
             const data = snapshot.val();
 
             if (snapshot.exists()) {
-                
-                console.log(data);
                 Object.values(data).map((product) => {
                     setProducts((products) => [...products, product]);
                 });
