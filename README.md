@@ -46,6 +46,7 @@ https://www.regaliaornaments.com/
 # ToDos:
 * &hearts; - learn & implement routing - 30
 * &hearts; - make login page for admin - 30
+* image upload - 45
 * make list page/list item component for admin - 45
 * make detail page for product - 45
 * make add detail page - 30
@@ -60,3 +61,4 @@ https://www.regaliaornaments.com/
 * url of whatsapp,mail,insta,fb
 * a paragraph for about us(use chat gpt)
 * remove background from logo
+* categories - neclace set, earrings, bangles, fingerrings, anklets, hamper

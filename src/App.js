@@ -3,6 +3,7 @@ import "./App.scss";
 import {createBrowserRouter, RouterProvider} from "react-router-dom"
 import AdminLogin from "./components/admin/AdminLogin";
 import ProductList from "./components/admin/ProductList";
+import AddProduct from "./components/admin/AddProduct";
 
 
 function App() {
@@ -18,6 +19,10 @@ function App() {
         {
             path:"/admin/products",
             element:<ProductList />
+        },
+        {
+            path:"/admin/addProduct",
+            element:<AddProduct />
         }
     ])
     return (

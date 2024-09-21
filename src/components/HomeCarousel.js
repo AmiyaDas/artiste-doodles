@@ -12,7 +12,7 @@ function HomeCarousel() {
         console.log(item)
     }
     return (
-        <div className="home-carousel">
+        <div className="homeCarousel">
             <Carousel autoPlay={true} infiniteLoop={true} showThumbs={false} showStatus={false} onClickItem={handleClick}>
                 <div>
                     <img src={carousel1}/>

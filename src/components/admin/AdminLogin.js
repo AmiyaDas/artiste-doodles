@@ -32,8 +32,8 @@ function AdminLogin() {
     return (
         <div className='admin'>
 
-            <div className='login-panel'>
-                <div className='admin-header'>
+            <div className='loginPanel'>
+                <div className='adminHeader'>
                     <div>
                         <img src={logo} alt="home1" className="logo" />
                     </div>
@@ -42,7 +42,7 @@ function AdminLogin() {
                 <form onSubmit={loginHandler}>
                     <input className="username" type="text" placeholder='Username' value={userName} onChange={handleUserName}></input>
                     <input className="password" type="password" placeholder='Password' value={password} onChange={handlePassword}></input>
-                    <button className='action-button'>Login As Admin</button>
+                    <button className='activeButton'>Login As Admin</button>
                 </form>
             </div>
         </div>

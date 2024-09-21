@@ -4,17 +4,17 @@ function Footer() {
     return (
         <div>
             <div className="footer">
-                <div className="footer-item">
+                <div className="footerItem">
                     <a href="#">About Us</a>
                 </div>
-                <div className="footer-item">
+                <div className="footerItem">
                     <a href="#">Give Feedback</a>
                 </div>
-                <div className="footer-item">
+                <div className="footerItem">
                     <a href="#">Contact Us</a>
                 </div>
             </div>
-            <div className="footer-icons">
+            <div className="footerIcons">
                 <span>
                 <FaInstagram />
                 </span>

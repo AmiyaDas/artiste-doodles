@@ -23,7 +23,7 @@ body {
 
 .search {
   min-width: 1rem;
-  .search-input {
+  .searchInput {
     background: transparent;
     border-radius: 0.5rem;
     border: 2px solid;
@@ -40,7 +40,7 @@ body {
   display: flex;
   justify-content: center;
   border-bottom: 1px solid $icon-color;
-  .menu-item {
+  .menuItem {
     margin: 0rem 1rem;
     a {
       color: $link-color;
@@ -58,7 +58,7 @@ body {
   display: flex;
   justify-content: center;
   border-bottom: 1px solid $icon-color;
-  .footer-item {
+  .footerItem {
     margin: 0rem 1rem;
     a {
       color: $link-color;
@@ -70,7 +70,7 @@ body {
   }
 }
 
-.footer-icons {
+.footerIcons {
   display: flex;
   justify-content: center;
   color: $icon-color;
@@ -91,14 +91,14 @@ body {
   }
 }
 
-.home-carousel {
+.homeCarousel {
   margin-bottom: 1rem;
 }
 
 .offers,
 .category {
-  .offers-header,
-  .category-header {
+  .offersHeader,
+  .categoryHeader {
     margin-top: 4rem;
     display: flex;
     font-size: 1.5rem;
@@ -107,12 +107,12 @@ body {
     color: $title-color;
   }
 
-  .offers-cards-container {
+  .offersCardsContainer {
     display: flex;
     padding: 1rem 0.5rem;
     justify-content: space-between;
     overflow-x: auto;
-    .offer-card {
+    .offerCard {
       width: 23%;
       height: 100%;
       min-width: 10rem;
@@ -130,14 +130,14 @@ body {
     }
   }
 
-  .category-cards-container {
+  .categoryCardsContainer {
     display: flex;
     padding: 1rem 0.5rem 1rem 0rem;
     justify-content: space-between;
   }
 }
 
-.category-card {
+.categoryCard {
   box-shadow: $shadow-color;
   width: 31%;
   height: 100%;
@@ -154,14 +154,14 @@ body {
     padding: 0rem 0rem 0.5rem 0rem;
     font-size: 18px;
   }
-  .category-card-title {
+  .categoryCardTitle {
   }
 }
 
 .admin {
   display: flex;
   height: 100vh;
-  .login-panel {
+  .loginPanel {
     display: flex;
     flex-direction: column;
     width: 50%;
@@ -169,25 +169,16 @@ body {
     justify-content: center;
     margin: auto;
     align-items: center;
-    .admin-header {
+    .adminHeader {
       text-align: center;
       .logo {
         width: 8rem;
       }
     }
 
-    .username {
-      width: 100%;
-      background-color: $white-color;
-      border: 1px solid $border-color;
-      margin-top: 1rem;
-      box-shadow: $shadow-color;
-      border-radius: 10px;
-      padding: 0.5rem;
-      font-size: 16px;
-    }
+    .username,
     .password {
-      width: 100%;
+      width: 98%;
       background-color: $white-color;
       border: 1px solid $border-color;
       margin-top: 1rem;
@@ -196,16 +187,45 @@ body {
       padding: 0.5rem;
       font-size: 16px;
     }
-    .action-button {
-      width: 100%;
-      background-color: $link-color;
-      color: $background;
-      border: 1px solid $border-color;
-      margin-top: 1rem;
-      box-shadow: $shadow-color;
-      border-radius: 10px;
-      padding: 0.5rem;
-      font-size: 16px;
-    }
+  }
+}
+
+.activeButton {
+  width: 100%;
+  background-color: $link-color;
+  color: $background;
+  border: 1px solid $border-color;
+  margin-top: 1rem;
+  box-shadow: $shadow-color;
+  border-radius: 10px;
+  padding: 0.5rem;
+  font-size: 16px;
+}
+
+.neutralButton{
+  width: 100%;
+  background-color: transparent;
+  color: $link-color;
+  border: 1px solid $border-color;
+  margin-top: 1rem;
+  box-shadow: $shadow-color;
+  border-radius: 10px;
+  padding: 0.5rem;
+  font-size: 16px;
+}
+
+.addProductForm {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  input {
+    width: 98%;
+    background-color: $white-color;
+    border: 1px solid $border-color;
+    margin-top: 1rem;
+    box-shadow: $shadow-color;
+    border-radius: 10px;
+    padding: 0.5rem;
+    font-size: 16px;
   }
 }

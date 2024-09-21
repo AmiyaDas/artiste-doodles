@@ -2,10 +2,10 @@ import React from 'react';
 
 function CategoryCard({ bgImage, url }) {
     return (
-        <div className='category-card'>
+        <div className='categoryCard'>
             <a href={url}>
                 <img src={bgImage} />
-                <div className='category-card-title'>
+                <div className='categoryCardTitle'>
                     Title
                 </div>
             </a>

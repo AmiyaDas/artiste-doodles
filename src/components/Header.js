@@ -14,7 +14,7 @@ function Header({ showSearch = false, showUser = false, showCart = false }) {
                 return (
                     <div className="search">
                         <FaSearch onClick={handleShowSearchInput} />
-                        <input className="search-input">
+                        <input className="searchInput">
                         </input>
                     </div>
                 );

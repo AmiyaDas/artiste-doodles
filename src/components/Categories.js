@@ -5,10 +5,10 @@ import CategoryCard from './CategoryCard';
 function Categories() {
     return (
         <div className='category'>
-            <div className='category-header'>
+            <div className='categoryHeader'>
                 SHOP BY CATEGORIES
             </div>
-            <div className='category-cards-container'>
+            <div className='categoryCardsContainer'>
                 <CategoryCard bgImage={category1} url="https://www.google.com" />
                 <CategoryCard bgImage={category1} url="https://www.google.com" />
                 <CategoryCard bgImage={category1} url="https://www.google.com" />

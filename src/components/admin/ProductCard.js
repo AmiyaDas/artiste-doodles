@@ -6,20 +6,20 @@ const ProductCard = ({ image, id, title, price, mrp }) => {
     const url = "/admin/products/" + id;
     const discount = 100 - Math.round(price * 100 / mrp);
     return (
-        <div className='product-card'>
+        <div className='productCard'>
             <Link to={url}>
                 <img src={image} />
-                <div className='product-card-details'>
+                <div className='productCardDetails'>
                     <div className='title'>
                         {title}
                     </div>
-                    <div className='mrp'>
-                        {mrp}<span className='discount'>{discount + "%"}</span>
+                    <div >
+                        <span className='mrp'>{"Rs." + mrp}</span>
+                        <span className='discount'>{"(" + discount + "% OFF)"}</span>
                     </div>
                     <div className='price'>
-                        {price}
+                        {"Rs." + price}
                     </div>
-                    Title
                 </div>
             </Link>
         </div>

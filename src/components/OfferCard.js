@@ -2,7 +2,7 @@ import React from 'react';
 
 function OfferCard({ bgImage, url }) {
     return (
-        <div className='offer-card'>
+        <div className='offerCard'>
             <a href={url}>
                 <img src={bgImage} />
             </a>

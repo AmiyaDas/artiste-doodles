@@ -1,13 +1,14 @@
 $icon-color: #6d4211;
 $shadow-color: rgba(0, 0, 0, 0.15) 0px 4px 12px 0px;
 $background: #eddcc4;
+$background2: #f7e3d1;
 
 .header {
   display: flex;
   justify-content: space-between;
   padding: 0rem 2rem;
   font-size: 20pt;
-  background-color: $background;
+  background-color: $background2;
   box-shadow: $shadow-color;
 
   .logo {
