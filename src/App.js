@@ -1,33 +1,38 @@
 import Home from "./components/Home";
 import "./App.scss";
-import {createBrowserRouter, RouterProvider} from "react-router-dom"
+import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import AdminLogin from "./components/admin/AdminLogin";
 import ProductList from "./components/admin/ProductList";
 import AddProduct from "./components/admin/AddProduct";
+import ProductDetails from "./components/admin/ProductDetails";
 
 
 function App() {
     const routers = createBrowserRouter([
-       {
-            path:"/",
-            element:<Home />
+        {
+            path: "/",
+            element: <Home />
         },
         {
-            path:"/admin",
-            element:<AdminLogin />
+            path: "/admin",
+            element: <AdminLogin />
         },
         {
-            path:"/admin/products",
-            element:<ProductList />
+            path: "/admin/products",
+            element: <ProductList />
         },
         {
-            path:"/admin/addProduct",
-            element:<AddProduct />
+            path: "/admin/products/:productId",
+            element: <ProductDetails />
+        },
+        {
+            path: "/admin/addProduct",
+            element: <AddProduct />
         }
     ])
     return (
         <div className='app'>
-            <RouterProvider router={routers}/>
+            <RouterProvider router={routers} />
         </div>
     )
 }

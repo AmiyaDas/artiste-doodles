@@ -202,7 +202,7 @@ body {
   font-size: 16px;
 }
 
-.neutralButton{
+.neutralButton {
   width: 100%;
   background-color: transparent;
   color: $link-color;
@@ -218,7 +218,8 @@ body {
   display: flex;
   flex-direction: column;
   padding: 2rem;
-  input, select {
+  input,
+  select {
     width: 98%;
     background-color: $white-color;
     border: 1px solid $border-color;

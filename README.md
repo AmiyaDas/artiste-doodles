@@ -44,10 +44,10 @@ https://www.regaliaornaments.com/
 * mobile responsive
 
 # ToDos:
-* &hearts; - learn & implement routing - 30
-* &hearts; - make login page for admin - 30
-* image upload - 45
-* add category & subcategory logic - 45
+* &hearts; - learn & implement routing
+* &hearts; - make login page for admin
+* &hearts; - image upload
+* &hearts; - add category & subcategory logic
 * make list page/list item component for admin - 45
 * make detail page for product - 45
 * make add detail page - 30

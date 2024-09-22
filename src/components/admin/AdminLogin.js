@@ -28,7 +28,7 @@ function AdminLogin() {
         setUserName("");
         setPassword("");
     }
-    
+
     return (
         <div className='admin'>
 

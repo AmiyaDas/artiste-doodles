@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { db } from "../../utils/firebase";
 import { set, ref as refDatabase, onValue } from "firebase/database";
-import { uploadImage } from "../../utils/imageHandler"
+import { uploadImage } from "../../utils/imageHandler";
+import { useNavigate } from 'react-router-dom';
+
 
 const AddProduct = () => {
+  const navigateTo = useNavigate();
   const [categories, setCategories] = useState([]);
   const [subCategories, setSubCategories] = useState([]);
   const [product, setProduct] = useState({
@@ -57,7 +60,6 @@ const AddProduct = () => {
     // check and add category & subCategories
     addProductToDB(tempProd);
     console.log(tempProd);
-    //image uploader
     //detaile adder
   };
 
@@ -100,6 +102,7 @@ const AddProduct = () => {
     const file = event.target.files[0];
     const fileName = new Date().getTime() + file?.name?.match(/\.[0-9a-z]+$/i)[0];
     uploadImage("products", fileName, file);
+    // option to add more images
   }
 
   const handleCancel = () => {
@@ -116,7 +119,8 @@ const AddProduct = () => {
       category: "",
       subCategory: "",
       details: {}
-    })
+    });
+    navigateTo(-1);
   }
 
 
