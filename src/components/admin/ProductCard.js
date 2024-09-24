@@ -2,13 +2,14 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import "./ProductCard.scss"
 
-const ProductCard = ({ image, id, title, price, mrp }) => {
+const ProductCard = ({ images, id, title, price, mrp }) => {
     const url = "/admin/products/" + id;
     const discount = 100 - Math.round(price * 100 / mrp);
     return (
         <div className='productCard'>
             <Link to={url}>
-                <img src={image} />
+            {/* show multiple images here as carousel */}
+                <img src={images[0]} />
                 <div className='productCardDetails'>
                     <div className='title'>
                         {title}

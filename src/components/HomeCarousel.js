@@ -6,22 +6,21 @@ import carousel2 from "../assets/carousel1.jpg";
 import carousel3 from "../assets/carousel1.jpg";
 
 
-function HomeCarousel() {
-    const handleClick = function(index,item){
-        console.log("index:"+index)
+function HomeCarousel({ imageUrls = [] }) {
+    const handleClick = function (index, item) {
+        console.log("index:" + index)
         console.log(item)
     }
     return (
         <div className="homeCarousel">
             <Carousel autoPlay={true} infiniteLoop={true} showThumbs={false} showStatus={false} onClickItem={handleClick}>
-                <div>
-                    <img src={carousel1}/>
-                </div>
-                <div>
-                    <img src={carousel2} />
-                </div><div>
-                    <img src={carousel3} />
-                </div>
+                {
+                    imageUrls.map(image => {
+                        return (<div>
+                            <img src={image} />
+                        </div>)
+                    })
+                }
             </Carousel>
         </div>
     )

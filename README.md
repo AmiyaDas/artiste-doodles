@@ -48,10 +48,11 @@ https://www.regaliaornaments.com/
 * &hearts; - make login page for admin
 * &hearts; - image upload
 * &hearts; - add category & subcategory logic
-* make list page/list item component for admin - 45
+* &hearts; - make list page/list item component for admin - 45
 * make detail page for product - 45
+* option to add multiple photos - 45
 * make add detail page - 30
-* make edit details page - 30
+* make edit product page - 30
 
 
 

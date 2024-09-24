@@ -1,0 +1,42 @@
+.productContainer {
+  padding: 1rem;
+  .imageContainer {
+  }
+  .detailsContainer {
+    .titleSection {
+      .title {
+        font-size: 22px;
+        font-weight: bold;
+      }
+      .description {
+        color: #666;
+      }
+      .mrp {
+        color: #999;
+        font-style: italic;
+        text-decoration: line-through;
+        font-size: 16px;
+      }
+      .price {
+        font-weight: bolder;
+      }
+      .discount {
+        color: rgb(30, 139, 30);
+        font-size: 16px;
+        padding-left: 0.25rem;
+      }
+    }
+    .detailsSection {
+      margin-top: 1rem;
+      padding: 1rem;
+      border: 2px solid #ccc;
+      .detailsHeader {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+      }
+    }
+    .actionButtonsSection {
+    }
+  }
+}

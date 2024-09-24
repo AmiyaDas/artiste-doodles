@@ -9,6 +9,8 @@ const AddProduct = () => {
   const navigateTo = useNavigate();
   const [categories, setCategories] = useState([]);
   const [subCategories, setSubCategories] = useState([]);
+  const [categoryName, setCategoryName] = useState("");
+  const [subCategoryName, setSubCategoryName] = useState("");
   const [product, setProduct] = useState({
     title: "",
     description: "",
@@ -57,16 +59,42 @@ const AddProduct = () => {
       dateAdded: new Date().getTime()
     }
     setProduct(tempProd);
-    // check and add category & subCategories
+    checkAddCategory(tempProd.category, tempProd.subCategory);
     addProductToDB(tempProd);
     console.log(tempProd);
     //detaile adder
   };
 
+  const checkAddCategory = async (category, subCategory) => {
+    // check and add category & subCategories
+    const categoryExist = categories.find(cat => cat.key === category);
+    for (let i = 0; i < categories.length; i++) {
+      if (categories[i].key === category) {
+        categories[i].subCategories[categories[i].subCategories.length] = [...categories[i].subCategories, { key: subCategory, value: subCategory }];
+        const query = refDatabase(db, "categories/" + i);
+        await set(query, categories[i]);
+        return;
+      }
+    }
+    const newCategory = {
+      key: category,
+      value: category,
+      subCategories: {
+        0: {
+          key: subCategory,
+          value: subCategory
+        }
+      }
+    }
+
+    const query = refDatabase(db, "categories/" + categories.length);
+    await set(query, newCategory);
+  }
+
   const addProductToDB = async (product) => {
     const query = refDatabase(db, "products/" + product.id);
     const savedData = await set(query, product);
-    console.log(savedData);
+    console.log("data saved", savedData);
 
   }
 
@@ -80,16 +108,28 @@ const AddProduct = () => {
   }
 
   const handleCategoryChange = (event) => {
-    const selectedCategoryKey = event.target.value.replace(/ /g, '').toUpperCase();
-    setProduct({
-      ...product,
-      category: selectedCategoryKey
-    });
-    const selectedCategory = categories.find(category => category.key === selectedCategoryKey);
-    setSubCategories(Object.values(selectedCategory.subCategories));
+    try {
+      setCategoryName(event.target.value);
+      const selectedCategoryKey = event.target.value.replace(/ /g, '').toUpperCase();
+      setProduct({
+        ...product,
+        category: selectedCategoryKey
+      });
+      const selectedCategory = categories.find(category => category.key === selectedCategoryKey);
+      if (selectedCategory) {
+        setSubCategories(Object.values(selectedCategory.subCategories));
+      } else {
+        setSubCategories([]);
+      }
+    } catch (error) {
+      console.log("Unknown error occured!:AddProduct");
+      console.log(error);
+      alert("Unknown error occured!:AddProduct");
+    }
   }
 
   const handleSubCategoryChange = (event) => {
+    setSubCategoryName(event.target.name);
     const selectedSubCategory = event.target.value.replace(/ /g, '').toUpperCase();
     setProduct({
       ...product,
@@ -99,9 +139,24 @@ const AddProduct = () => {
 
   const handleImageUpload = (event) => {
     event.preventDefault();
-    const file = event.target.files[0];
-    const fileName = new Date().getTime() + file?.name?.match(/\.[0-9a-z]+$/i)[0];
-    uploadImage("products", fileName, file);
+    try {
+      let imagesList = "";
+      for (const file of event.target.files) {
+        const fileName = new Date().getTime() + file?.name?.match(/\.[0-9a-z]+$/i)[0];
+        uploadImage("products", fileName, file);
+        imagesList = imagesList ? imagesList + "," + fileName : fileName;
+      }
+      setProduct({
+        ...product,
+        images: imagesList
+      });
+    } catch (error) {
+      console.log("Unknown error occured!:FileUpload");
+      console.log(error);
+      alert("Unknown error occured!:FileUpload");
+    }
+
+
     // option to add more images
   }
 
@@ -131,9 +186,9 @@ const AddProduct = () => {
         <input required placeholder='Title' name="title" value={product.title} onChange={handleChange}></input>
         <input placeholder='Description' name="description" value={product.description} onChange={handleChange}></input>
         <input required placeholder='ID' name="id" value={product.id} onChange={handleChange}></input>
-        <input list="categoriesList" name="category" placeholder='Select Category' onChange={handleCategoryChange}></input>
+        <input list="categoriesList" name="category" placeholder='Select Category' onBlur={handleCategoryChange}></input>
         {categoryOptions}
-        <input list="subCategoriesList" name="subCategory" placeholder='Select Sub-Category' onChange={handleSubCategoryChange}></input>
+        <input list="subCategoriesList" name="subCategory" placeholder='Select Sub-Category' onBlur={handleSubCategoryChange}></input>
         {subCategoryOptions}
         <input placeholder='Keywords:separated by comma' name="keywords" value={product.keywords} onChange={handleChange}></input>
         <input required placeholder='MRP' type="number" name="mrp" value={product.mrp} onChange={handleChange}></input>
@@ -144,7 +199,7 @@ const AddProduct = () => {
         </div> */}
         <div className='productImages'>
           Select Imgaes :
-          <input type='file' accept="image/*" onChange={handleImageUpload} />
+          <input type='file' accept="image/*" onChange={handleImageUpload} multiple />
           <div>
 
           </div>
