@@ -14,7 +14,7 @@ https://www.regaliaornaments.com/
 * &hearts; - menu bar with menu items (categories)
 * &hearts; - footer
 * &hearts; - homepage carousal
-* list of items page
+* &hearts; - list of items page
  * left panel for filters (auto generated based on attributes)
  * top will have a sorting option drop down
  * item card with image, title, price, off and current price
@@ -31,7 +31,7 @@ https://www.regaliaornaments.com/
  * list page of items with filters and sorting and search
   * item list with edit and delete buttons (delete confirm popup)
  * edit page
- * add page
+ * &hearts; - add page
  * orders list
   * list item
  * order detail page
@@ -52,15 +52,19 @@ https://www.regaliaornaments.com/
 * &hearts; - make login page for admin
 * &hearts; - image upload
 * &hearts; - add category & subcategory logic
-* &hearts; - make list page/list item component for admin - 45
-* make detail page for product - 45
+* &hearts; - make list page/list item component for admin
+* &hearts; - make detail page for product
+* &hearts; - make detail page for product user
 * option to add multiple photos - 45
-* make add detail page - 30
+* make add attributes detail option - 30
 * make edit product page - 30
+* populate details in edit page from id - 45
+* save edits - 30
+* 
 
 
 
-# Requirements:
+# Requirements from client:
 * Categories list
 * Photo for carousals(3 atleas) ratio 2:1(800x400)
 * 1 Photo for each category

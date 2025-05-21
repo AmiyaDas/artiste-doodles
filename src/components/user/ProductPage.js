@@ -8,16 +8,26 @@ import {
   getDownloadURL,
 } from "firebase/storage";
 import HomeCarousel from "../HomeCarousel";
-import "./AdminStyle.scss";
+import "./ProductPage.scss";
 import { useNavigate } from "react-router-dom";
 
-const ProductDetails = () => {
+const ProductPage = () => {
   let { productId } = useParams();
   const storage = getStorage();
   const navigateTo = useNavigate();
 
   const [productDetails, setProductDetails] = useState({});
   const [imagesList, setImagesList] = useState([]);
+  const [quantity, setQuantity] = useState(1);
+
+  const decreaseQty = () => {
+    if (quantity > 1) setQuantity(quantity - 1);
+  };
+
+  const increaseQty = () => {
+    setQuantity(quantity + 1);
+  };
+
   let discount = 0;
 
   useEffect(() => {
@@ -67,17 +77,26 @@ const ProductDetails = () => {
         <div className="reviewStars">
           ★★★★☆ <span>(34 reviews)</span>
         </div>
+
         <div className="price">
           <span className="originalPrice">{"₹" + productDetails.mrp}</span>
           {"₹" + productDetails.price}{" "}
           <span className="discount">{"(" + discount + "% OFF)"}</span>
         </div>
+
+        <div className="quantitySelector">
+          <button onClick={decreaseQty}>−</button>
+          <span>{quantity}</span>
+          <button onClick={increaseQty}>+</button>
+        </div>
+
         <div className="actions">
-          <button className="addToCart">Edit Product Details</button>
+          <button className="addToCart">Add to Cart</button>
           <button className="activeButton" onClick={handleProductDelete}>
-            Delete
+            Buy Now
           </button>
         </div>
+
         <div className="description">{productDetails.description}</div>
         <div className="specifications">
           <div className="detailsHeader">Product Details:</div>
@@ -101,4 +120,4 @@ const ProductDetails = () => {
   );
 };
 
-export default ProductDetails;
+export default ProductPage;

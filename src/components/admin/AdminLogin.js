@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import logo from "../../assets/logo.png"
 import { useNavigate } from 'react-router-dom';
+import './AdminStyle.scss'
+
 
 
 function AdminLogin() {
@@ -20,7 +22,8 @@ function AdminLogin() {
 
     const loginHandler = (event) => {
         event.preventDefault();
-        if (userName.toUpperCase() === "ADMIN" && password === "Neha@14694") {
+        //check - change it latera
+        if (userName.toUpperCase() === "ADMIN" && password === "12345") {
             navigateTo("/admin/products")
         } else {
             alert("Wrong user name or password!")

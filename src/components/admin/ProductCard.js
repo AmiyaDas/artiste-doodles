@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import "./ProductCard.scss"
+import './AdminStyle.scss'
 
 const ProductCard = ({ images, id, title, price, mrp }) => {
     const url = "/admin/products/" + id;

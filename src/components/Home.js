@@ -5,12 +5,13 @@ import HomeCarousel from "./HomeCarousel";
 import Offers from "./Offers";
 import Categories from "./Categories";
 import ComingSoon from "./ComingSoon";
+import ProductPage from "./Test";
 
 function Home() {
     return (
         <div>
             {/* <Header /> */}
-            <ComingSoon/>
+            <ProductPage/>
             {/* <Menu />
             <HomeCarousel />
             <Offers />

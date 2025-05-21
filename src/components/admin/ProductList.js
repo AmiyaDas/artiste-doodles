@@ -5,7 +5,7 @@ import { db } from "../../utils/firebase";
 import { onValue, ref } from "firebase/database";
 import { useNavigate } from 'react-router-dom';
 import { getStorage, ref as storageRef, getDownloadURL } from "firebase/storage";
-import "./ProductList.scss";
+import "./AdminStyle.scss";
 
 const ProductList = () => {
     const [products, setProducts] = useState([]);
